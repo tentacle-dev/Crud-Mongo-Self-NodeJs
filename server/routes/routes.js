@@ -15,9 +15,9 @@ app.post("/add" ,async (req,res) => {
 });
 
 app.get("/tasks" , async(req,res) => {
-    const task = await TaskModel.find({});
+    const task = await TaskModel.find();
     try {
-        res.status(200).send(users)
+        res.status(200).send(task)
     } catch (error) {
         res.status(500).send(error)
     }
