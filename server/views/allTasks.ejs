@@ -1,0 +1,48 @@
+<%- include('layout.ejs'); %>
+
+    <h1></h1>    
+    <div class="container text-center">
+        <h2 class="">All blogs</h2>
+        <table class="table caption-top">
+            <caption>List of tasks</caption>
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <% if (results.length > 0) {%>
+                    <% results.forEach(result => { %>
+                    <tr>
+                        <td>
+                            <%= result.title %>
+                        </td>  
+                        <td>
+                            <%= result.description %>
+                        </td>
+                        <td>
+                            <a href="/<%= result.id %>" class="btn btn-primary">View</a>
+                        </td>                       
+                    </tr>
+                    <% });  %>
+                    <% } else { %>
+                        <div>
+                            No tasks available
+                        </div>
+                        <% } %>
+         </tbody>
+        </table>
+
+        </div>
+    </div>
+</body>
+</html>

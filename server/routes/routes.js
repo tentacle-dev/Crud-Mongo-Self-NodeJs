@@ -1,26 +1,15 @@
 const express = require("express");
 
-const TaskModel = require("../models");
+const taskController = require('../controllers/taskController')
+// const TaskModel = require("../models/tasks")
+const router = express.Router();
 
-const app = express();
+router.get('/create' , taskController.createTask);
+router.post('/add' , taskController.addTask);
+router.get('/all' , taskController.getAllTasks);
+router.get('/' , taskController.getAllTasks);
+router.get('/:id' , taskController.taskDetails)
+router.post('/update' , taskController.updateTask)
+// router.post('/update' , taskController.updateTask)
 
-app.post("/add" ,async (req,res) => {
-  const task = new TaskModel(req.body);
-  try {
-    await task.save();
-    res.send(task)
-  } catch (error) {
-    res.status(500).send(error)
-  }
-});
-
-app.get("/tasks" , async(req,res) => {
-    const task = await TaskModel.find();
-    try {
-        res.status(200).send(task)
-    } catch (error) {
-        res.status(500).send(error)
-    }
-});
-
-module.exports = app;
+module.exports = router;
