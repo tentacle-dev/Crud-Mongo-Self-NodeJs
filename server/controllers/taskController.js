@@ -42,18 +42,38 @@ const taskDetails = (req,res) => {
 const updateTask = (req,res) => {
     const titleWhere = req.body.title;
     const desc = req.body.description;
-    console.log(req.body);
+    console.log(req.body)
     Task.findOneAndUpdate( {title : titleWhere } , {description : desc} )
     .then( res.redirect('/'))
     .catch(err => console.log(err))
 }
+
+const deleteTask = (req,res) => {
+    const id = req.params.id
+    console.log(id)
+    Task.deleteOne({id : id})
+    .then( res.redirect("/"))
+    .catch(err => console.log(err));
+
+}
+
+// const updateTask = (req,res) => {
+//     const id = req.body.id;
+//     const desc = req.body.description;
+//     console.log(req.body);
+//     Task.findOneAndUpdate( {id : id } , {description : desc} )
+//     .then( res.redirect('/'))
+//     .catch(err => console.log(err))
+// }
+
 
 module.exports = {
     getAllTasks,
     createTask,
     addTask,
     taskDetails,
-    updateTask
+    updateTask,
+    deleteTask
 }
 
 

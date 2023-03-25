@@ -10,6 +10,5 @@ router.get('/all' , taskController.getAllTasks);
 router.get('/' , taskController.getAllTasks);
 router.get('/:id' , taskController.taskDetails)
 router.post('/update' , taskController.updateTask)
-// router.post('/update' , taskController.updateTask)
-
+router.post('/delete' , taskController.deleteTask)
 module.exports = router;

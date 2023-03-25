@@ -1,10 +1,10 @@
 <%- include('layout.ejs'); %>
+<%- include('nav.ejs'); %>
 
-    <h1></h1>    
-    <div class="container text-center">
-        <h2 class="">All blogs</h2>
-        <table class="table caption-top">
-            <caption>List of tasks</caption>
+    <h1 class="text-center">CRUD APPLICATION</h1>    
+    <div class="container text-white">
+        <h2 class="">All Tasks</h2>
+        <table class="table caption-top text-white">
         <thead>
             <tr>
                 <th>
@@ -31,6 +31,7 @@
                         </td>
                         <td>
                             <a href="/<%= result.id %>" class="btn btn-primary">View</a>
+                            <a href="/delete/<%= result.id %>" class="btn btn-danger">Delete</a>
                         </td>                       
                     </tr>
                     <% });  %>

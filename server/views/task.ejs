@@ -1,7 +1,8 @@
 <%- include('layout.ejs'); %>
+<%- include('nav.ejs'); %>
 
 <body>
-    <div class="container">
+    <div class="container text-center">
         <div class="container">
             <h1>Task Details</h1>
         </div>
@@ -22,6 +23,13 @@
               <textarea name="description" id="" cols="" rows="" placeholder=<%= results.description %>></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <form action="/delete" method="post">
+            <p> 
+              <%= results.id %>
+            </p>
+            <input type="hidden" name="id" value=<%= results.id %> >
+            <button type="submit" class="btn btn-danger">Delete</button>
           </form>
 
 
